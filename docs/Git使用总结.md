@@ -106,3 +106,11 @@
 * git remote -v
 ~~~
 
+
+#### 暂时将未提交的变化移除，稍后再移入（冲突解决）
+
+~~~markdown
+* git stash
+* git stash pop
+~~~
+
