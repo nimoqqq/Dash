@@ -5,6 +5,8 @@ package cn.nimoblog.Observer;
  * @Author Chuf
  * @Date: 2021/5/17 3:45 下午
  * @Version 1.0
+ *
+ * https://mp.weixin.qq.com/s/bUUqp7DCVvQPP-H1EIGrnw
  */
 public class ObserverTest {
 
