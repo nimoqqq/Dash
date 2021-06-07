@@ -17,3 +17,4 @@
 ### 显示类之间的关系： ctrl + command + u
 ### ~~删除类中没有用到的package： ctrl + alt + o~~
 ### 查看最近使用的文件：command +E
+### 快速补全行末分号: Shfit + command + Enter
