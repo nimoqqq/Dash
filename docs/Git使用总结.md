@@ -82,11 +82,12 @@
 #### 分支创建、重命名、查看、删除
 
 ~~~markdown
+* git branch -d 创建并切换到分支
 * git branch daily/0.0.0 创建分支
 * git branch -m daily/0.0.0 daily/0.0.1	 修改分支名
 * git branch  查看分支列表
 * git branch -d daily/0.0.1  删除分支
-* git chckout daily/0.0.1 切换分支
+* git checkout daily/0.0.1 切换分支
 * git push origin --delete 分支名 删除远程分支
 ~~~
 
