@@ -58,8 +58,9 @@
 #### 版本回退
 
 ~~~markdown
-* git  reset --hard   HEAD^  或者 $ git reset --hard  HEAD~1 :回退到上一个版本  
+* git reset --hard   HEAD^  或者 $ git reset --hard  HEAD~1 :回退到上一个版本  
 * git reflog :用来记录你的每一次命令，以便确定要回到未来哪个版本
+* git revert :撤销中间某次提交
 ~~~
 
 #### 撤销修改
@@ -86,6 +87,7 @@
 * git branch  查看分支列表
 * git branch -d daily/0.0.1  删除分支
 * git chckout daily/0.0.1 切换分支
+* git push origin --delete 分支名 删除远程分支
 ~~~
 
 #### 查看文件变动状态
