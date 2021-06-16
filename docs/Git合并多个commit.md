@@ -28,6 +28,12 @@
    ~~~shell
    git push -f
    ~~~
+   
+5. 如果合并失败
+   ~~~shell
+   #撤销修改
+   git rebase --abort
+   ~~~
 
    
 
