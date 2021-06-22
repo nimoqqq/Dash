@@ -46,7 +46,9 @@
 #### 合并代码
 
 ~~~markdown
-* git merge
+* git merge 分支名
+* git rebase 分支名
+* 
 ~~~
 
 #### 查看版本信息
@@ -82,7 +84,7 @@
 #### 分支创建、重命名、查看、删除
 
 ~~~markdown
-* git branch -d 创建并切换到分支
+* git checkout -b 创建并切换到分支
 * git branch daily/0.0.0 创建分支
 * git branch -m daily/0.0.0 daily/0.0.1	 修改分支名
 * git branch  查看分支列表
