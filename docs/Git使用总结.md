@@ -47,7 +47,8 @@
 
 ~~~markdown
 * git merge 分支名
-* git rebase 分支名
+* git rebase 分支名 
+* git rebase --continue 解决完冲突之后执行
 * 
 ~~~
 

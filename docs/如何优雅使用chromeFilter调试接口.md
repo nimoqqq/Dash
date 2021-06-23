@@ -12,7 +12,7 @@
 
 **排除指定url**
 
-> 在filter栏输入“ **-url:ping -url:speed -url:heart -url:logs**”排除轮询请求。
+> 在filter栏输入 **“-url:ping -url:speed -url:heart -url:logs”**排除轮询请求。
 
 ### 排除options
 
