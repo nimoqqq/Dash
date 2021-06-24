@@ -39,8 +39,9 @@
 #### 将服务器上的最新代码拉取到本地
 
 ~~~markdown
-* git pull 将远程主机的最新内容拉下来后直接合并
-* git fetch 是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。
+* git pull： 将远程主机的最新内容拉下来后直接合并
+* git fetch： 是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。
+* git push origin 分支名 : 将本地分支提交到远程分支
 ~~~
 
 #### 合并代码
@@ -48,7 +49,7 @@
 ~~~markdown
 * git merge 分支名
 * git rebase 分支名 
-* git rebase --continue 解决完冲突之后执行
+* git rebase --continue ：解决完冲突之后执行
 * 
 ~~~
 
@@ -69,9 +70,9 @@
 #### 撤销修改
 
 ~~~markdown
-* git checkout -- file 命令可以丢弃工作区的修改
-* git checkout -- readme.txt  把readme.txt文件在工作区的修改全部撤销，撤销修改之后就回到和版本库一摸一样的状态。
-* git reset HEAD file 把暂存区的修改撤销掉（unstage），重新放回工作区
+* git checkout -- file ：命令可以丢弃工作区的修改
+* git checkout -- readme.txt  ：把readme.txt文件在工作区的修改全部撤销，撤销修改之后就回到和版本库一摸一样的状态。
+* git reset HEAD file ：把暂存区的修改撤销掉（unstage），重新放回工作区
 ~~~
 
 #### 配置开发者用户名和邮箱
@@ -85,13 +86,13 @@
 #### 分支创建、重命名、查看、删除
 
 ~~~markdown
-* git checkout -b 创建并切换到分支
-* git branch daily/0.0.0 创建分支
-* git branch -m daily/0.0.0 daily/0.0.1	 修改分支名
-* git branch  查看分支列表
-* git branch -d daily/0.0.1  删除分支
-* git checkout daily/0.0.1 切换分支
-* git push origin --delete 分支名 删除远程分支
+* git checkout -b ：创建并切换到分支
+* git branch daily/0.0.0 ：创建分支
+* git branch -m daily/0.0.0 daily/0.0.1	 ：修改分支名
+* git branch  ：查看分支列表
+* git branch -d daily/0.0.1  ：删除分支
+* git checkout daily/0.0.1 ：切换分支
+* git push origin --delete 分支名 ：删除远程分支
 ~~~
 
 #### 查看文件变动状态
