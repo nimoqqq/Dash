@@ -20,5 +20,29 @@
             <version>1.16.18</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- activemq-all -->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>5.15.15</version>
+        </dependency>
+
+        <!-- spring使用activemq -->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-spring</artifactId>
+            <version>5.15.0</version>
+        </dependency>
+
+        <!-- springboot使用activemq -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-web</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-activemq</artifactId>-->
+        <!--        </dependency>-->
     </dependencies>
 </project>
