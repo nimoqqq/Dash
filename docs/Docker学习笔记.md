@@ -91,19 +91,17 @@ rm -rf /var/lib/docker
 
 2. 选择『镜像工具』--- 『镜像加速器』
 
-   ~~~shell
-   # 执行配置命令
-   sudo mkdir -p /etc/docker
-   sudo tee /etc/docker/daemon.json <<-'EOF'
-   {
-     "registry-mirrors": ["https://u8t7tej2.mirror.aliyuncs.com"]
-   }
-   EOF
-   sudo systemctl daemon-reload
-   sudo systemctl restart docker
-   ~~~
-
-   
+~~~shell
+# 执行配置命令
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://u8t7tej2.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+~~~
 
 ## Docker的常用命令
 
@@ -203,6 +201,14 @@ Docker rmi -f 镜像id 镜像id 镜像id 镜像id  # 删除多个容器
 Docker rmi -f $(docker images -aq) # 删除全部的容器
 ~~~
 
+* 提交镜像
+
+~~~shell
+docker commit # 提交容器称为一个新的副本
+
+# docker commit -m="提交信息描述" -a="作者" 容器id 目标镜像名：[TAG]
+~~~
+
 
 
 ### 容器命令
@@ -216,9 +222,246 @@ docker pull centos
 * 新建容器并启动
 
 ~~~shell
-# docker run 
+docker run [可选参数] image
+
+# 参数说明
+--name = "name" 容器名字，用来区分容器
+-d 		后台运行
+-it		使用交互方式运行，进入容器产看内容
+-p
+		-p  主机端口：容器端口
+		-p	容器端口
+		-p ip:主机端口：容器端口
+-P			随机端口
+~~~
+
+* 列出容器列表
+
+~~~shell
+docker ps # 当前正在运行的容器
+-a			# 列出所有容器
+-n=？ 	 # 显示最近创建的容器	
+-q		  # 只显示容器的编号
+~~~
+
+* 退出容器
+
+~~~shell
+exit #退出并停止
+command + P + Q # 退出不停止
+~~~
+
+* 删除容器
+
+~~~shell
+docker rm 容器id   # 删除指定容器
+docker rm -f 容器id   # 强制删除指定容器
+docker rm -f $(docker ps -aq)	# 删除所有容器
+docker ps -a -q | xargs docker rm # 删除所有的容器
+~~~
+
+* 启动和停止容器操作
+
+~~~shell
+docker start 容器id			# 启动容器
+docker restart 容器id		# 重启容器
+docker stop 容器id			# 停止当前正在运行的容器
+docker kill 容器id			# 强制停止当前正在运行的容器
+~~~
+
+
+
+### 常用的其他命令
+
+* 查看日志
+
+~~~shell
+# docker log
+	-f
+		--tail nnumber # 要显示日志的条数
+	-t	# 时间戳
+~~~
+
+* 查看容器进程信息
+
+~~~shell
+# docker top 容器id
+~~~
+
+* 查看元数据
+
+~~~shell
+# docker inspect 容器id
+~~~
+
+* 进入当前正在运行的容器
+
+~~~shell
+docker exec -it 容器id bashshell 	# 进入容器后开启一个新的终端
+
+docker attach 容器id			# 进入容器正在执行的终端
+~~~
+
+* 从容器内拷贝文件到主机
+
+~~~shell
+docker cp 容器id :容器路径 主机路径
+~~~
+
+
+
+### 部署Nginx
+
+~~~shell
 
 ~~~
 
 
 
+### 部署Tomcat
+
+~~~shell
+
+~~~
+
+
+
+### 部署ES+Kibana
+
+~~~shell
+
+~~~
+
+### 小结
+
+~~~shell
+
+~~~
+
+
+
+## 容器数据卷
+
+* 使用数据卷
+
+~~~shell
+# volume
+docker run -it -v 主机目录:容器内目录
+~~~
+
+* 具名和匿名挂载
+
+~~~shell
+# 匿名挂载
+-v 容器内路径
+docker run -d -p --name nginx01 -v /etc/nginx nginx
+
+# 具名挂载
+docker run -d -p --name nginx02 -v juming-nginx:/etc/nginx nginx
+
+# 查看所有的 volume 的情况
+docker vloume ls
+
+# 多个容器共享挂载路径
+docker run -d -p --name nginx01 -v juming-nginx:/etc/nginx nginx
+
+docker run -d -P --name nginx02 --volumes-from nginx01 nginx
+~~~
+
+* 拓展
+
+~~~shell
+# 通过 -v 容器内路径，ro rw 改变读写权限
+ro readonly  	只读
+rw readwrite	读写
+
+# docker run -d -P --name nginx01 -v juming-nginx:/etc/nginx:ro nginx
+# docker run -d -P --name nginx01 -v juming-nginx:/etc/nginx:rw nginx
+~~~
+
+## DockerFile
+
+
+
+### DockerFile 的指令
+
+~~~shell
+FROM					# 基础镜像，一切从这里开始构建
+MAINTAINER		# 镜像是谁写的，作者+邮箱
+RUN						# 镜像构建的时候需要运行的命令
+WORKDIR				# 镜像的工作目录
+VOLUME				# 挂载的目录
+EXPOSE				# 暴露端口配置
+ADD						# 步骤：添加命令，
+CMD						# 指定这个容器启动的时候要运行的命令。（只有最后一个会生效，可以被替代）
+ENTRYPOINT		#指定这个容器启动的时候要运行的命令，可以追加命令
+
+ONBUILD 			#当构建一个被继承DockerFile这个时候就会运行ONBUILD的指令。触发指令
+COPY					#类似ADD，将我们文件拷贝到镜像中
+ENV						#构建的时候设置环境变量！
+~~~
+
+
+
+### 实战
+
+1. 创建自己的DockerFile
+
+~~~markdown
+# cat dockerFile-mycentos
+FROM centos
+MAINTAINER chuf<907701820@qq.com>
+ENV MYPATH	/usr/local
+WORKDIR	$MYPATH
+RUN yum -y install vim
+RUN yum -y install net-tools
+EXPOSE 80
+CMD echo $MYPATH 
+CMD echo "----end---"
+CMD /bin/bash
+~~~
+
+2. 构建镜像
+
+~~~shell
+#命令docker build -f dockerie文件路径 -t 镜像名:[tag]
+docker build -f dockerFile-mycentos -t mycentos:0.1 .
+~~~
+
+
+
+### 实战: Tomcat 镜像
+
+1. 准备镜像文件 tomcat 压缩包，jdk的压缩包！
+
+
+
+2. 编写dockerfiler 文件，官方命名`DockerFiler`,build 会自动寻找这个文件。就不需要 -f 指定了！
+
+
+
+3. 构建镜像
+
+
+
+4. 启动镜像
+
+
+
+5. 访问测试
+
+
+
+6. 发布项目，使用卷挂载
+
+
+
+### 发布自己的镜像
+
+1、地址https://hub.docker.com/注册自己的账号! 
+
+2、确定这个这账号可以登录
+
+3、在我们服务器上提交自己的镜像
+
+4、登录完毕后就可以提交镜像了，就是一步docker push

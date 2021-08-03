@@ -64,7 +64,7 @@
 ~~~markdown
 * git reset --hard   HEAD^  或者 $ git reset --hard  HEAD~1 :回退到上一个版本  
 * git reflog :用来记录你的每一次命令，以便确定要回到未来哪个版本
-* git revert :撤销中间某次提交
+* git revert :撤销中间某次提交，（适合远程仓库回退。相当于在提交一个与之前相反的操作）
 ~~~
 
 #### 撤销修改
