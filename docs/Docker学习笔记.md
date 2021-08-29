@@ -465,3 +465,44 @@ docker build -f dockerFile-mycentos -t mycentos:0.1 .
 3、在我们服务器上提交自己的镜像
 
 4、登录完毕后就可以提交镜像了，就是一步docker push
+
+
+
+## Docker 网络
+
+### 理解 Docker0
+
+~~~shell
+ip addr  # 获取本机 ip
+~~~
+
+**Linux 可以 ping 通 Docker内部容器**
+
+> 原理：
+>
+> 1. 我们每启动一个docker容器，docker就会给docker容器分配一个ip，我们只要安装了docker，就会有一个网卡docker0 桥接模式，使用的技术是evth-pair技术！
+> 2. 在启动一个容器测试，发现又多了一对网卡~！
+>
+> ~~~shell
+> # 我们发现这个容器带来网卡，都是一对对的
+> # evth-pair就是一对的虚拟设备接口，他们都是成对出现的，一段连着协议，一段彼此相连
+> # 正因为有这个特性，evth-pair充当一个桥梁，连接各种虚拟网络设备的
+> # OpenStac，Docker容器之间的连接，OVS的连接，都是使用evth-pair技术
+> ~~~
+
+
+
+### --Link
+
+> 本质探究：一link就是我们在hosts配置中增加了一个172.18.0.3 tomcat02
+
+### 自定义网络（容器互连）
+
+~~~shell
+# 网络模式
+	* bridge：桥接docker（默认ID
+	* none：不配置网络
+	* host：和宿主机共享网络
+	* container：容器网络连通！（用的少！局限很大）
+~~~
+
