@@ -2,7 +2,7 @@ package cn.nimoblog.equalsHasCode;
 
 import lombok.Data;
 
-import java.util.Objects;
+import java.util.*;
 
 /**
  * 重写 equals 和 hasCode 方法
@@ -22,9 +22,15 @@ public class HasCodeAndQquals {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         HasCodeAndQquals that = (HasCodeAndQquals) o;
         return Objects.equals(getName(), that.getName()) &&
                 Objects.equals(getAddress(), that.getAddress());

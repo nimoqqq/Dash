@@ -4,6 +4,8 @@ package cn.nimoblog.Observer;
 
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
 /**
@@ -15,7 +17,6 @@ import java.util.Observable;
 
 @Getter
 public class ArticleObservable extends Observable {
-
     private String article;
 
     public void publish(String article){
