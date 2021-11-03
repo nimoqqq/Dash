@@ -15,32 +15,38 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-            <version>4.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.commons</groupId>-->
+<!--            <artifactId>commons-collections4</artifactId>-->
+<!--            <version>4.1</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.18</version>
-            <scope>provided</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.projectlombok</groupId>-->
+<!--            <artifactId>lombok</artifactId>-->
+<!--            <version>1.16.18</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
 
-        <!-- activemq-all -->
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-all</artifactId>
-            <version>5.15.15</version>
-        </dependency>
+<!--        &lt;!&ndash; activemq-all &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.activemq</groupId>-->
+<!--            <artifactId>activemq-all</artifactId>-->
+<!--            <version>5.15.15</version>-->
+<!--        </dependency>-->
 
-        <!-- spring使用activemq -->
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-spring</artifactId>
-            <version>5.15.0</version>
-        </dependency>
+<!--        &lt;!&ndash; spring使用activemq &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.activemq</groupId>-->
+<!--            <artifactId>activemq-spring</artifactId>-->
+<!--            <version>5.15.0</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-core</artifactId>-->
+<!--            <version>5.3.12</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
 
         <!-- springboot使用activemq -->
         <!--        <dependency>-->
