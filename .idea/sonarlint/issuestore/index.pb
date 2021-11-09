@@ -5,8 +5,6 @@ _
 /docs/Spring 源码阅读——@Transactional.md,e/1/e1527f618db6af12afe8f7839039b358ebe09683
 O
 docs/IDEA-Debug 调试技巧.md,f/5/f5cd5acc79fc0b492c2fb028b53063515a9a72fc
-g
-7src/main/java/cn/nimoblog/activemq/MessageReceiver.java,6/3/63e3691f5581d23729f07c90bae74389022806a6
 {
 Kbatch_insert/src/main/java/com/chuf/batchInsert/BatchInsertApplication.java,d/d/ddf7a2c340890f241272c27e757f6ef5422ad2fa
 
@@ -25,5 +23,3 @@ u
 Ebatch_insert/src/main/java/com/chuf/batchInsert/mapper/UserMapper.xml,e/6/e69014beef9fd106b97198ae6053984a2550d582
 x
 Hbatch_insert/src/main/java/com/chuf/batchInsert/service/UserService.java,1/6/16e41d7be1ad1cd30221ce00924e431edee3f750
-i
-9src/main/java/cn/nimoblog/Observer/ArticleObservable.java,a/d/ad5e8910c0fad772a27a43b2283ce692febf9e0b
