@@ -12,6 +12,7 @@
         <module name="batch_insert" />
         <module name="demo" />
         <module name="mystarter" />
+        <module name="algorithm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

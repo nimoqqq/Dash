@@ -43,7 +43,17 @@ j
 :demo/src/main/java/com/example/demo/objectIsNull/Test.java,a/5/a5e5e86bf6241ed3a8d500c0afa1fb5bda861f52
 n
 >demo/src/main/java/com/example/demo/objectIsNull/Response.java,7/9/79716fb455b68e27e59fca4b024655d65f7c326e
-P
- springboot_auto_config/README.md,5/6/56170606ad5b25c17285db8339207fdaef1da01e
 D
 batch_insert/pom.xml,9/7/971cbaf23c971dfd7a387625ff5fe47cd0dd8591
+A
+mystarter/pom.xml,7/0/70b7fc74f0f5d3fc9de045c6792ef9a40b8919b4
+F
+mystarter_test/pom.xml,8/d/8db9b12e16c86a7e3464dcc2a17897f9e8932cfd
+v
+Fmystarter/src/main/java/org/javaboy/HelloServiceAutoConfiguration.java,f/6/f6ce6660b4a73570703dd15f222265e732c4df90
+h
+8mystarter/src/main/java/org/javaboy/HelloProperties.java,8/c/8ca4c7428351a24f98c579827984574a1dc01e16
+Š
+Zmystarter_test/src/test/java/com/example/mystarter_test/MystarterTestApplicationTests.java,e/a/eaed5ecd6c996585963ff98558bb9a2c359c3e00
+e
+5mystarter/src/main/java/org/javaboy/HelloService.java,f/c/fc6d79871171d3849fc9a508b78db97061752c21
