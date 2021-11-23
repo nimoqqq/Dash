@@ -1,11 +1,11 @@
 package com.chuf.sys.io;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 
@@ -23,7 +23,8 @@ public class OSFileIO {
     private final static String path = "./sysio/src/main/resources/out.txt";
 
     public static void main(String[] args) throws Exception {
-        testBasicFileIO();
+        log.info("Start process {}...", OSFileIO.class.getName());
+//        testBasicFileIO();
     }
 
     /**
