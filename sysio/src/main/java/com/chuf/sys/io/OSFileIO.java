@@ -4,9 +4,10 @@ package com.chuf.sys.io;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
 import java.util.Arrays;
 
 /**
@@ -60,5 +61,41 @@ public class OSFileIO {
         }
     }
 
+    public static void testRandomAccessFileWrite() throws Exception {
+        RandomAccessFile raf = new RandomAccessFile(path,"rw");
 
+        raf.write("hello world".getBytes());
+        raf.write("hello java".getBytes());
+
+        //设置文件指针偏移位置，从该文件的头开始。发生下一次读活写
+        raf.seek(4);
+        raf.write("ooxx".getBytes());
+
+        //返回一该文件唯一关联的 FileChannel 对象
+        FileChannel channel = raf.getChannel();
+
+        //堆外  和文件映射的
+        //mode -一个常量READ_ONLY，根据该文件是否是要被映射的只读，读/写，或私人（写入时复制），分别
+        //position - 映射区域要启动的文件中的位置; 必须是非负的
+        //size - 要映射的区域的大小; 必须是非负数，不得大于Integer.MAX_VALUE
+        MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_WRITE, 0, 4096);
+
+        //不是系统调用，但是数据会到达内核的 pagecache
+        map.put("@@@@".getBytes());
+
+//        ByteBuffer buffer = ByteBuffer.allocate(1024);
+        ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
+        buffer.put("123".getBytes());
+
+        //读写交替
+        buffer.flip();
+        //读取该缓冲区当前位置的字节，然后增加位置
+        buffer.get();
+
+        //压缩此缓冲区
+        buffer.compact();
+
+        //清除此缓冲区。 位置设置为零，限制设置为容量，标记被丢弃。
+        buffer.clear();
+    }
 }
