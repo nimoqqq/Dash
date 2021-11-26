@@ -93,6 +93,7 @@
 * git branch -d daily/0.0.1  ：删除分支
 * git checkout daily/0.0.1 ：切换分支
 * git push origin --delete 分支名 ：删除远程分支
+* git push origin 远程分支名:本地分支名 ：推送本地分支到远程分支
 ~~~
 
 #### 查看文件变动状态
