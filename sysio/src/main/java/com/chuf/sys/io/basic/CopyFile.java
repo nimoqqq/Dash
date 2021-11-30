@@ -1,4 +1,4 @@
-package com.chuf.sys.io;
+package com.chuf.sys.io.basic;
 
 import java.io.File;
 import java.io.FileInputStream;
