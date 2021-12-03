@@ -8,11 +8,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mystarter_test" />
+        <module name="jdk17" />
+        <module name="spring_security" />
         <module name="threadpool-spring-boot-starter" />
         <module name="batch_insert" />
         <module name="demo" />
+        <module name="sysio" />
         <module name="mystarter" />
         <module name="algorithm" />
+        <module name="spring_AOP" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -24,6 +28,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="batch_insert" options="-parameters" />
       <module name="mystarter_test" options="-parameters" />
+      <module name="spring_AOP" options="-parameters" />
+      <module name="spring_security" options="-parameters" />
       <module name="threadpool-spring-boot-starter" options="-parameters" />
     </option>
   </component>
