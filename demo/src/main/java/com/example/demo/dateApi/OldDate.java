@@ -1,4 +1,4 @@
-package com.example.demo.oldDateApi;
+package com.example.demo.dateApi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
