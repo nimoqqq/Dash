@@ -1,6 +1,8 @@
 package com.example.demo.dateApi;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * @program: Dash
@@ -12,6 +14,10 @@ import java.time.LocalDate;
 public class newDate {
     public static void main(String[] args) {
         localDateDemo();
+        System.out.println("---------localDateDemo end---------");
+        localTimeDemo();
+        System.out.println("---------localTimeDemo end---------");
+        localDateTimeDemo();
     }
 
     /**
@@ -21,10 +27,12 @@ public class newDate {
      */
     private static void localDateDemo() {
         final LocalDate now = LocalDate.now();
-
-        System.out.println(now); // 获取今天日期
-        System.out.println(LocalDate.of(2021, 12, 25)); // 设置日期,并创建对象
-        System.out.println(LocalDate.parse("2021-12-25")); // 设置日期,并创建对象
+        // 获取今天日期
+        System.out.println(now);
+        // 设置日期,并创建对象
+        System.out.println(LocalDate.of(2021, 12, 25));
+        // 设置日期,并创建对象
+        System.out.println(LocalDate.parse("2021-12-25"));
 
         //当前时间加一天
         final LocalDate plusDays = now.plusDays(1);
@@ -32,8 +40,34 @@ public class newDate {
         final LocalDate plusMonths = now.plusMonths(-1);
         //当前时间加两年
         final LocalDate plusYears = now.plusYears(2);
+        // 获取星期几字段，这是一个枚举 DayOfWeek
+        System.out.println(now.getDayOfWeek());
+        // 获取月份字段
+        System.out.println(now.getDayOfMonth());
+    }
 
-        System.out.println(now.getDayOfWeek()); // 获取星期几字段，这是一个枚举 DayOfWeek
-        System.out.println(now.getDayOfMonth()); // 获取月份字段
+    /**
+     * {@link LocalTime} 类似于 {@link LocalDate}，一个只用来表示时间的类
+     * 默认格式：hh:mm:ss:nnn
+     */
+    private static void localTimeDemo() {
+        LocalTime now = LocalTime.now();
+        System.out.println("获取当前时间：" + now);
+
+        LocalTime noon = LocalTime.NOON;
+        System.out.println("中午时间：" + noon);
+
+        System.out.println("从一小时分钟获取一个 LocalTime的实例：" + LocalTime.of(12, 31));
+        System.out.println("从一小时分钟获取一个 LocalTime的实例：" + LocalTime.parse("12:31"));
+    }
+
+    /**
+     * {@link java.time.LocalDateTime} 表示日期和时间的结合
+     */
+    private static void localDateTimeDemo() {
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println("获取当前的日期时间：" + now);
+
+        System.out.println("指定年月日 时分秒：" + LocalDateTime.of(2021, 12, 27, 12, 52, 20));
     }
 }
