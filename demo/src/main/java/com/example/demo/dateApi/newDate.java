@@ -59,6 +59,7 @@ public class newDate {
 
         System.out.println("从一小时分钟获取一个 LocalTime的实例：" + LocalTime.of(12, 31));
         System.out.println("从一小时分钟获取一个 LocalTime的实例：" + LocalTime.parse("12:31"));
+        System.out.println(now.atDate(LocalDate.now()));
     }
 
     /**

@@ -135,48 +135,111 @@ public class OldDate {
   > LocalTime now = LocalTime.now();
   > ```
 
-  | 修饰符 | 返回类型 | 方法  |     说明     |      示例       |
-  | :----: | :------: | :---: | :----------: | :-------------: |
-  |        |          | now() | 获取当前时间 | LocalTime.now() |
-  |        |          |       |              |                 |
-  |        |          |       |              |                 |
-  |        |          |       |              |                 |
+  | 修饰符 |   返回类型    |           方法           |                   说明                    |            示例             |
+  | :----: | :-----------: | :----------------------: | :---------------------------------------: | :-------------------------: |
+  | static |   LocalTime   |          now()           |               获取当前时间                |       LocalTime.now()       |
+  | static |   LocalTime   | of(int hour, int minute) |   从一小时分钟获取一个 LocalTime的实例    |    LocalTime.of(12, 31)     |
+  | static |   LocalTime   | parse(CharSequence text) |   从一小时分钟获取一个 LocalTime的实例    |  LocalTime.parse("12:31")   |
+  |   -    | LocalDateTime |  atDate(LocalDate date)  | 结合这个时间创建一个`LocalDateTime`的日期 | now.atDate(LocalDate.now()) |
 
   
 
 * LocalDateTime
 
-  |      |      |      |      |
-  | ---- | ---- | ---- | ---- |
-  |      |      |      |      |
-  |      |      |      |      |
-  |      |      |      |      |
-  |      |      |      |      |
-  |      |      |      |      |
-  |      |      |      |      |
-  |      |      |      |      |
-  |      |      |      |      |
-  |      |      |      |      |
+  > ```apl
+  > * 表示日期和时间的结合
+  > LocalDateTime now = LocalDateTime.now();
+  > ```
+
+  | 修饰符 |   返回类型    |                             方法                             |                        说明                        |                            示例                             |
+  | :----: | :-----------: | :----------------------------------------------------------: | :------------------------------------------------: | :---------------------------------------------------------: |
+  | static | LocalDateTime |                            now()                             |                    获取当前日期                    |                    LocalDateTime.now();                     |
+  | static | LocalDateTime | of(int year, Month month, int dayOfMonth, int hour, int minute) | 从年，月，日，小时和分钟获得 `LocalDateTime`的实例 |     LocalDateTime.of(2021, Month.DECEMBER, 28, 06, 30)      |
+  | static | LocalDateTime |              of(LocalDate date,LocalTime time)               |     从日期和时间获取一个 `LocalDateTime`的实例     |     LocalDateTime.of(LocalDate.now(), LocalTime.now())      |
+  |   -    | LocalDateTime |               with(TemporalAdjuster adjuster)                |          通过调用指定调整器,进行复杂运算           | now.with(TemporalAdjusters.firstDayOfNextMonth())下月第1 天 |
 
   
 
 * ZonedDateTime
 
+  > ~~~apl
+  > * ZoneDateTime 类来表示某时区下的时间。
+  > ~~~
+
+  | 修饰符 | 返回类型 | 方法 | 说明 | 示例 |
+  | :----: | :------: | :--: | :--: | :--: |
+  |        |          |      |      |      |
+  |        |          |      |      |      |
+  |        |          |      |      |      |
+  |        |          |      |      |      |
+
+  
+
 * Instant
+
+  > ~~~apl
+  > * 这个当前时间戳在java.time中以Instant类型表示，我们用Instant.now()获取当前时间戳，效果和System.currentTimeMillis()类似。
+  > * Instant内部只有两个核心字段：一个是以秒为单位的时间戳，一个是更精确的纳秒精度。它和System.currentTimeMillis()返回的long相比，只是多了更高精度的纳秒。如果只是为了获取秒数或者毫秒数，使用System.currentTimeMillis()来得更为方便.
+  > 
+  > Instant instant = Instant.now();
+  > ~~~
+
+  | 修饰符 | 返回类型 |       方法       |    说明     |           示例           |
+  | :----: | :------: | :--------------: | :---------: | :----------------------: |
+  |   -    |   long   | getEpochSecond() |  时间戳/秒  | instant.getEpochSecond() |
+  |   -    |   long   |  toEpochMilli()  | 时间戳/毫秒 |  instant.toEpochMilli()  |
 
 * Duration
 
+  > ~~~apl
+  > * 用于计算两个时间（秒，纳秒）间隔。
+  > ~~~
+
+  | 修饰符 | 返回类型 |                             方法                             |                        说明                         | 示例 |
+  | :----: | :------: | :----------------------------------------------------------: | :-------------------------------------------------: | :--: |
+  |        | Duration | **[between](https://www.matools.com/file/manual/jdk_api_1.8_google/java/time/Duration.html#between-java.time.temporal.Temporal-java.time.temporal.Temporal-)**([Temporal](https://www.matools.com/file/manual/jdk_api_1.8_google/java/time/temporal/Temporal.html) startInclusive, [Temporal](https://www.matools.com/file/manual/jdk_api_1.8_google/java/time/temporal/Temporal.html) endExclusive) | 获取一个 `Duration`表示两个时间对象之间的持续时间。 |      |
+
+  
+
 * Period
+
+  > ~~~apl
+  > * 用于计算两个日期（年月日）间隔。
+  > ~~~
+
+  | 修饰符 | 返回类型 |                             方法                             |                          说明                           | 示例 |
+  | :----: | :------: | :----------------------------------------------------------: | :-----------------------------------------------------: | :--: |
+  | Static |  Period  | between(LocalDate startDateInclusive, LocalDate endDateExclusive) | 获得一个`Period` ，包括两个日期之间的年数，月份和日期。 |      |
+
+  
 
 * DateTimeFormatter
 
 * TemporalAdjuster
 
-~~~java
+  > ~~~apl
+  > * 调整时间对象的策略接口。
+  > * 调整器是修改时间物体的关键工具。 它们存在于外部化调整过程中，根据策略设计模式允许不同的方法。
+  > ~~~
 
-~~~
+  | 修饰符 | 返回类型 |             方法              |                             说明                             | 示例 |
+  | :----: | :------: | :---------------------------: | :----------------------------------------------------------: | :--: |
+  |   -    | Temporal | adjustInto(Temporal temporal) | 调整指定的时间对象。这使用实现类中封装的逻辑来调整指定的时间对象 |      |
 
+* TemporalAdjusters
 
+  > ~~~apl
+  > * 实现了一些标准的调整器：
+  > ~~~
+
+  | 修饰符 |     返回类型     |               方法                |                             说明                             | 示例 |
+  | :----: | :--------------: | :-------------------------------: | :----------------------------------------------------------: | :--: |
+  | static | TemporalAdjuster |         firstDayOfMonth()         |                返回设置为当月的第一天的新日期                |      |
+  | static | TemporalAdjuster |         lastDayOfMonth()          |   返回“最后一个月的”调整器，该日期设置为当前月份的最后一天   |      |
+  | static | TemporalAdjuster |          lastDayOfYear()          |             返回设置为当前年份的最后一天的新日期             |      |
+  | static | TemporalAdjuster | firstInMonth(DayOfWeek dayOfWeek) | 在同一个月内返回与第一个匹配的星期几的新日期。 这是用于表达，如“3月的第一个星期二”。 |      |
+
+  
 
 ## 四、新旧日期时间 API 的区别
 
@@ -190,5 +253,49 @@ public class OldDate {
 
 ## 五、时间戳
 
+**工具类**
+
+~~~java
+/**
+  * LocalDateTime转毫秒时间戳
+  * @param localDateTime LocalDateTime
+  * @return 时间戳
+  */
+public static Long localDateTimeToTimestamp(LocalDateTime localDateTime) {
+    try {
+        ZoneId zoneId = ZoneId.systemDefault();
+        Instant instant = localDateTime.atZone(zoneId).toInstant();
+        return instant.toEpochMilli();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return null;
+}
+
+/**
+ * 时间戳转LocalDateTime
+ * @param timestamp 时间戳
+ * @return LocalDateTime
+ */
+public static LocalDateTime timestampToLocalDateTime(long timestamp) {
+    try {
+        Instant instant = Instant.ofEpochMilli(timestamp);
+        ZoneId zone = ZoneId.systemDefault();
+        return LocalDateTime.ofInstant(instant, zone);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return null;
+}
+
+~~~
 
 
+
+**参考博客**
+
+> [Java 8 API](https://www.cnblogs.com/Mystogan/p/15305587.html)
+>
+> https://www.matools.com/api/java8
+>
+> [廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1252599548343744/1303791989162017)
