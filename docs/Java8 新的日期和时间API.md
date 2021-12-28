@@ -189,6 +189,8 @@ public class OldDate {
   |   -    |   long   | getEpochSecond() |  时间戳/秒  | instant.getEpochSecond() |
   |   -    |   long   |  toEpochMilli()  | 时间戳/毫秒 |  instant.toEpochMilli()  |
 
+  
+
 * Duration
 
   > ~~~apl
@@ -215,6 +217,22 @@ public class OldDate {
 
 * DateTimeFormatter
 
+  > ~~~apl
+  > * 格式化器用于打印和解析日期时间对象。
+  > * 更复杂的格式化程序由DateTimeFormatterBuilder提供
+  > LocalDateTime now = LocalDateTime.now();
+  > //指定格式 使用系统默认的格式 2021-12-28T13:00:27.118951
+  > DateTimeFormatter isoLocalDateTime = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+  > ~~~
+
+  | 修饰符 |     返回类型      |                       方法                        |                        说明                        | 示例 |
+  | :----: | :---------------: | :-----------------------------------------------: | :------------------------------------------------: | :--: |
+  |   -    |      String       |         format(TemporalAccessor temporal)         | 这将使用格式化程序的规则将日期时间格式化为String。 |      |
+  | static | DateTimeFormatter |             ofPattern(String pattern)             |           使用指定的模式创建格式化程序。           |      |
+  |   -    | TemporalAccessor  | parse(CharSequence text,  ParsePosition position) |         *将字符串解析为一个 日期时间类型*          |      |
+
+  
+
 * TemporalAdjuster
 
   > ~~~apl
@@ -225,6 +243,8 @@ public class OldDate {
   | 修饰符 | 返回类型 |             方法              |                             说明                             | 示例 |
   | :----: | :------: | :---------------------------: | :----------------------------------------------------------: | :--: |
   |   -    | Temporal | adjustInto(Temporal temporal) | 调整指定的时间对象。这使用实现类中封装的逻辑来调整指定的时间对象 |      |
+
+  
 
 * TemporalAdjusters
 

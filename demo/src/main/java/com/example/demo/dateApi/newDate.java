@@ -3,6 +3,7 @@ package com.example.demo.dateApi;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @program: Dash
@@ -18,6 +19,8 @@ public class newDate {
         localTimeDemo();
         System.out.println("---------localTimeDemo end---------");
         localDateTimeDemo();
+
+        dateTimeFormatterDemo();
     }
 
     /**
@@ -70,5 +73,13 @@ public class newDate {
         System.out.println("获取当前的日期时间：" + now);
 
         System.out.println("指定年月日 时分秒：" + LocalDateTime.of(2021, 12, 27, 12, 52, 20));
+    }
+
+
+    private static void dateTimeFormatterDemo() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter isoLocalDateTime = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+        String format = now.format(isoLocalDateTime);
+        System.out.println("format = " + format);
     }
 }
