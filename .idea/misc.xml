@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/batch_insert/pom.xml" />
         <option value="$PROJECT_DIR$/demo/pom.xml" />
         <option value="$PROJECT_DIR$/mystarter_test/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-cache-demo/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="mystarter_test" />
         <module name="jdk17" />
+        <module name="spring-cache-demo" />
         <module name="spring_security" />
         <module name="threadpool-spring-boot-starter" />
         <module name="batch_insert" />
