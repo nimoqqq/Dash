@@ -7,4 +7,25 @@
     <insert id="insertUser">
         insert into t_user values(1,'张三','123',23,'女')
     </insert>
+
+    <!--int deleteUser();-->
+    <delete id="deleteUser">
+        delete from t_user where id = 6
+    </delete>
+
+    <!--int updateUser();-->
+    <update id="updateUser">
+        update t_user set username = '张三' where id = 5
+    </update>
+
+    <!--User getUserById();-->
+    <select id="getUserById" resultType="com.nimo.pojo.User">
+        select * from t_user where id = 2
+    </select>
+
+    <!--List<User> getUserList();-->
+    <select id="getUserList" resultType="com.nimo.pojo.User">
+        select * from t_user
+    </select>
+
 </mapper>
