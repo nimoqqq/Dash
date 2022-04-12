@@ -122,3 +122,21 @@
 * git stash pop
 ~~~
 
+
+
+
+
+#### 本地提交回退
+
+~~~markdown
+* git log
+
+* git reset --soft commit_id  #回退到上一个 提交的节点 代码还是原来你修改的  
+
+* git reset --hard commit_id #回退到上一个commit节点， 代码也发生了改变，变成上一次的
+~~~
+
+
+
+
+

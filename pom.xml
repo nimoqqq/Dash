@@ -15,6 +15,7 @@
         <module>sysio</module>
         <module>spring_security</module>
         <module>spring_AOP</module>
+        <module>coderead_mybatis</module>
     </modules>
 
     <properties>

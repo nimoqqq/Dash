@@ -14,6 +14,9 @@ import java.time.format.DateTimeFormatter;
  **/
 public class newDate {
     public static void main(String[] args) {
+        final LocalDate now = LocalDate.now();
+        final LocalDate localDate = now.withDayOfMonth(1);
+
         localDateDemo();
         System.out.println("---------localDateDemo end---------");
         localTimeDemo();
