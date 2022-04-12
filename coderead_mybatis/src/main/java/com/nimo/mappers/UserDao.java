@@ -1,4 +1,4 @@
-package com.nimo.dao;
+package com.nimo.mappers;
 
 /**
  * @program: Dash

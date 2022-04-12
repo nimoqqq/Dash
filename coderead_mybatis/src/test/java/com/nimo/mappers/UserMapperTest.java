@@ -1,4 +1,4 @@
-package com.nimo.dao;
+package com.nimo.mappers;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
